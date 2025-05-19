@@ -9,7 +9,6 @@ $eventType         =       mysqli_real_escape_string($conn,$_POST['eventType']);
 $nickName          =       mysqli_real_escape_string($conn,$_POST['nickname']); 
 $eventDate         =       mysqli_real_escape_string($conn,$_POST['eventDate']);   
 
-// استخراج محتوى المحررات النصية
 $greetingText      =       mysqli_real_escape_string($conn,$_POST['editorGreeting'] ?? '');    
 $organizerCount    =       mysqli_real_escape_string($conn,$_POST['organizerCount'] ?? '');
 $organizerName1    =       mysqli_real_escape_string($conn,$_POST['organizerName1'] ?? '');   
@@ -17,15 +16,12 @@ $organizerName2    =       mysqli_real_escape_string($conn,$_POST['organizerName
 $phrasesText       =       mysqli_real_escape_string($conn,$_POST['editorPhrases'] ?? '');    
 $fullOrganizerName =       mysqli_real_escape_string($conn,$_POST['fullOrganizerName'] ?? '');  
 
-// معلومات العنوان والخريطة
 $addressText       =       mysqli_real_escape_string($conn,$_POST['editorAddress'] ?? '');
 $mapsLink          =       mysqli_real_escape_string($conn,$_POST['mapsLink'] ?? '');
 
-// معلومات البرنامج والمعلومات الإضافية
 $programmeText     =       mysqli_real_escape_string($conn,$_POST['editorProgramme'] ?? '');
 $additionalInfoText =      mysqli_real_escape_string($conn,$_POST['editorAdditionalInfo'] ?? '');
 
-// معلومات RSVP
 $DeadlineRSVP      =       mysqli_real_escape_string($conn,$_POST['DeadlineRSVP'] ?? '');
 $MaxPax            =       mysqli_real_escape_string($conn,$_POST['MaxPax'] ?? '');
 $TotalGuests       =       mysqli_real_escape_string($conn,$_POST['TotalGuests'] ?? '');
@@ -40,12 +36,10 @@ $contactRelation2  =       mysqli_real_escape_string($conn,$_POST['contactRelati
 $contactNum2       =       mysqli_real_escape_string($conn,$_POST['contactNum2'] ?? '');
 $contactWhats2     =       isset($_POST['contactWhats2']) ? 1 : 0;
 
-// معلومات الأغنية والتمرير التلقائي
 $youtubeLink       =       mysqli_real_escape_string($conn,$_POST['youtubeLink'] ?? '');
 $startTime         =       mysqli_real_escape_string($conn,$_POST['startTime'] ?? '');
 $autoPlay          =       isset($_POST['autoPlay']) ? 1 : 0;
 
-// إعدادات العرض
 $showVenue         =       isset($_POST['showVenue']) ? 1 : 0;
 $showDate          =       isset($_POST['showDate']) ? 1 : 0;
 $showTime          =       isset($_POST['showTime']) ? 1 : 0;
