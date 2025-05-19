@@ -1,0 +1,911 @@
+.forms{
+  width: 50%;
+  height: 100%;
+}
+.form {
+    display: none;
+    transition: all 0.5s ease;
+    padding: 40px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 50px 0px;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background-color: #fff;
+  }
+  
+  .form.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .form input[type="text"],
+  .form input[type="url"],
+  .form select {
+    transition: all 0.3s ease;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+  }
+  
+  .form input[type="text"]:hover,
+  .form input[type="url"]:hover,
+  .form select:hover {
+    border-color: #6c5ce7;
+    background-color: #f5f5f5;
+  }
+  
+  .form input[type="text"]:focus,
+  .form input[type="url"]:focus,
+  .form select:focus {
+    outline: none;
+    border-color: #6c5ce7;
+    box-shadow: 0 0 5px rgba(108, 92, 231, 0.3);
+    transform: translateY(-2px);
+  }
+  
+  .form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  .form .nav-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 0;
+    padding: 0 8px;
+    box-sizing: border-box;
+  }
+  .form .stepTitle{
+    font-size: 20px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.5);
+    width: 350px;
+    padding: 10px;
+    border: solid 0.1px black;
+    border-radius: 10px;
+  }
+  
+  .arrow-btn,
+  .arrow-btn2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    padding: 8px 18px;
+    border-radius: 10px;
+    min-width: 30px;
+    min-height: 30px;
+  }
+  
+  .arrow-btn:hover,
+  .arrow-btn2:hover {
+    background-color: #5a4bc7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .editor-container {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 0px;
+    width: 600px;
+    font-family: sans-serif;
+    margin: 0px 0px;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+  
+  .toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0px 0px;
+    padding: 0px 0px;
+  }
+  
+  .toolbar button, .toolbar select {
+    padding: 0px;
+    border: 1px solid #aaa;
+    background: #f9f9f9;
+    cursor: pointer;
+  }
+  
+  .content {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    min-height: 100px;
+    font-size: 14px;
+    font-family: 'warb',sans-serif ;
+  }
+  .toolbar button {
+    width: 25px;
+    height: 25px;
+    font-size: 16px;
+    text-align: center;
+  }
+  .content p{
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+  }
+  .contact-block {
+    margin-bottom: 30px;
+  }
+  
+  .contact-block h3 {
+    margin-bottom: 10px;
+    color: #444;
+  }
+  
+   .toggle-label {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    font-weight: bold;
+    margin: 10px 0;
+    font-size: 18px;
+    position: relative;
+    min-height: 32px;
+  }
+  
+   .toggle-label span {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  
+   .toggle-label input[type="checkbox"] {
+    align-self: flex-end;
+    margin-bottom: 2px;
+    appearance: none;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 10px;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+   .toggle-label input[type="checkbox"]:checked {
+    background-color: #6c5ce7;
+  }
+  
+   .toggle-label .slider {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 20px;
+    border-radius: 10px;
+    pointer-events: none;
+  }
+  
+   .toggle-label .slider::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    transition: 0.3s;
+  }
+
+  .toggle-label input[type="checkbox"]:checked + .slider::before {
+    transform: translateX(20px);
+  }
+
+  /* form 1*/
+  #form1 h1{
+margin-left: 250px;
+margin-bottom: 0px;
+padding-bottom: 0px;
+  }
+  #form1 p{
+    margin-left: 220px;
+    margin-top: 0px;
+    padding-top: 5px;
+    font-size: 24px;
+    font-weight: 100;
+      }
+      #form1 label{
+        font-size: 18px;
+        font-weight: bold;
+        padding: 10px;
+        margin-bottom: 20px;
+        width: 100%;
+      }
+      #form1 select{
+        width: 600px;
+        height: 40px;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      #form1 select:hover {
+        background-color: #f0f0f0;
+      }
+      #form1 select:focus {
+        outline: none;
+        border-color: #6c5ce7;
+        box-shadow: 0 0 5px rgba(108, 92, 231, 0.3);
+      }
+      #form1 div{
+      margin: 10px 10px;
+      padding: 10px 10px;  
+      }
+      /*form 2*/
+      #form2 h1{
+        margin-left: 250px;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+          }
+          #form2 p{
+            margin-left: 240px;
+            margin-top: 0px;
+            padding-top: 5px;
+            font-size: 24px;
+            font-weight: 100;
+              }
+              #form2 label{
+                font-size: 18px;
+                font-weight: bold;
+                padding: 10px;
+                margin-bottom: 20px;
+                width: 100%;
+              }
+              #form2 div{
+                margin: 10px 10px;
+                padding: 10px 10px;  
+                }
+                #form2 input{
+                  width: 500px;
+                  height: 35px;
+                  padding: 10px;
+                  margin: 10px;
+                  border-radius: 25px;
+                  border: 1px solid #ddd;
+                  transition: all 0.3s ease;
+                }
+                #form2 input:hover {
+                  background-color: #f0f0f0;
+                }
+                #form2 input:focus {
+                  outline: none;
+                  border-color: #6c5ce7;
+                  box-shadow: 0 0 5px rgba(108, 92, 231, 0.3);
+                }
+                .nav-buttons .arrow-btn2{
+                  position: relative;
+                  left: 0px;
+                }
+                #form2 input[type="text"]{
+                  text-align: center;
+                }
+                /*form 3*/
+                #form3 h1{
+                  margin-left: 250px;
+                  margin-bottom: 0px;
+                  padding-bottom: 0px;
+                    }
+                    #form3 p{
+                      margin-left: 230px;
+                      margin-top: 0px;
+                      padding-top: 0px;
+                      font-size: 24px;
+                      font-weight: 100;
+                        }
+                        #form3 div{
+                          margin: 0px 0px;
+                          padding: 5px 5px;  
+                          }
+                          #form3 label{
+                            font-size: 18px;
+                            font-weight: bold;
+                            width: 100%;
+                          }
+                          #form3 input{
+                            width: 600px;
+                            height: 25px;
+                            padding: 10px 0px;
+                            margin: 10px 0px;
+                            border-radius: 25px;
+                            border: 1px solid #ddd;
+                            transition: all 0.3s ease;
+                          }
+                          #form3 input:hover {
+                            background-color: #f0f0f0;
+                          }
+                          #form3 input:focus {
+                            outline: none;
+                            border-color: #6c5ce7;
+                            box-shadow: 0 0 5px rgba(108, 92, 231, 0.3);
+                          }
+                          #form3 #editorGreeting{
+                            text-align: center;
+                          }
+                          #form3 .content{
+                            text-align: center;
+                            white-space: pre;
+                          }
+                          /*form 4*/
+                          #form4 h1{
+                            margin-left: 280px;
+                            margin-bottom: 0px;
+                            padding-bottom: 0px;
+                              }
+                          #form4 p{
+                            margin-left: 230px;
+                            margin-top: 0px;
+                            padding-top: 0px;
+                            font-size: 24px;
+                            font-weight: 100;
+                              }
+                              #form4 div{
+                                margin: 0px 0px;
+                                padding: 5px 5px;  
+                                }
+                                #form4 label{
+                                  font-size: 18px;
+                                  font-weight: bold;
+                                  width: 100%;
+                                }
+                                #form4 input{
+                                  width: 600px;
+                                  height: 25px;
+                                  padding: 10px 0px;
+                                  margin: 10px 0px;
+                                  border-radius: 25px;
+                                  border: solid 0.3x;
+                                }
+                                #form4 #editorAddress{
+                                  text-align: center;
+                                }
+                                #form4 input[type="url"]{
+                                  text-align: center;
+                                }
+                                /*form 5*/
+                                #form5 h1{
+                                  margin-left: 290px;
+                                  margin-bottom: 0px;
+                                  padding-bottom: 0px;
+                                    }
+                                #form5 p{
+                                  margin-left: 230px;
+                                  margin-top: 0px;
+                                  padding-top: 0px;
+                                  font-size: 24px;
+                                  font-weight: 100;
+                                    }
+                                    #form5 div{
+                                      margin: 0px 0px;
+                                      padding: 5px 5px;  
+                                      }
+                                      #form5 label{
+                                        font-size: 18px;
+                                        font-weight: bold;
+                                        width: 100%;
+                                      }
+                                      #form5 #editorProgramme{
+                                        text-align: center;
+                                        white-space: pre;
+                                      }
+                                      #form5 #editorAdditionalInfo{
+                                        text-align: center;
+                                      }
+                                      /*form 6*/
+                                      #form6 h1{
+                                        margin-left: 290px;
+                                        margin-bottom: 0px;
+                                        padding-bottom: 0px;
+                                          }
+                                      #form6 p{
+                                        margin-left: 310px;
+                                        margin-top: 0px;
+                                        padding-top: 0px;
+                                        font-size: 24px;
+                                        font-weight: 100;
+                                          }
+                                          #form6 div{
+                                            margin: 0px 0px;
+                                            padding: 5px 5px;  
+                                            }
+                                            #form6 input{
+                                              width: 250px;
+                                              height: 15px;
+                                              padding: 10px 0px;
+                                              margin: 10px 0px;
+                                              border-radius: 15px;
+                                            }
+                                            #form6 .inputCheck{
+                                              width: 50px;
+                                              position: relative;
+                                              bottom: -14px;
+
+                                            }
+                                            #form6 input[type="text"]{
+                                              text-align: center;
+                                            }
+                                            /*form 7*/
+                                            #form7 h1{
+                                              margin-left: 250px;
+                                              margin-bottom: 0px;
+                                              padding-bottom: 0px;
+                                                }
+                                            #form7 p{
+                                              margin-left: 200px;
+                                              margin-top: 0px;
+                                              padding-top: 0px;
+                                              font-size: 24px;
+                                              font-weight: 100;
+                                                }
+                                                #form7 div{
+                                                  margin: 0px 0px;
+                                                  padding: 5px 5px;  
+                                                  position: relative;
+                                                  }
+                                                  #form7 label{
+                                                    font-size: 18px;
+                                                    font-weight: bold;
+                                                    width: 100%;
+                                                  }
+                                                  #form7 input{
+                                                    width: 600px;
+                                                    height: 25px;
+                                                    padding: 10px 0px;
+                                                    margin: 10px 0px;
+                                                    border-radius: 25px;
+                                                  }
+                                                  #form7 .btnPlay{
+                                                    position: absolute;
+                                                    height: 25px;
+                                                    right: 80px;
+                                                    top: 50px;
+                                                    width: 90px;
+                                                    font-size: 18px;
+                                                    background-color: transparent;
+                                                    border: none;
+
+                                                  }
+                                                  #form7 .autoPlay{
+                                                    width: 40px;
+                                                    height: 20px;
+                                                    padding: 0px 0px;
+                                                    margin: 0px 0px;
+                                                    margin-bottom: 0px;
+                                                  }
+                                           /*form 8*/
+                                           #form8 h1{
+                                            margin-left: 320px;
+                                            margin-bottom: 0px;
+                                            padding-bottom: 0px;
+                                              }
+                                          #form8 p{
+                                            margin-left: 280px;
+                                            margin-top: 0px;
+                                            padding-top: 0px;
+                                            font-size: 24px;
+                                            font-weight: 100;
+                                              }
+                                              #form8 div{
+                                                margin: 0px 0px;
+                                                padding: 5px 0px;  
+                                                }
+                                                #form8 .nav-buttons button{
+                                                  font-size: 15px;
+                                                }
+                                               
+
+/*Preview*/
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.preview {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 40px;
+    width: 25%;
+    font-family: sans-serif;
+    margin: 50px 0px;
+    height: 100%;
+    margin-bottom: 10px;
+  }
+  #previeweditorPhrases{
+    white-space: pre-wrap;
+    text-align: center;
+  }
+  #previewmapsLink a {
+    font-size: 30px;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  #previewmapsLink a:hover {
+    color: #0056b3;
+  }
+  #player-container {
+    position: relative; /* حتى نتمكن من وضع الزر فوقه */
+    left: -9999px;        /* يبعده عن العرض */
+    width: 1px;           /* يقلل العرض لأدنى حد */
+    height: 1px;          /* يقلل الارتفاع لأدنى حد */
+    overflow: hidden;  
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+    .forms {
+        width: 60%;
+    }
+    
+    #form1 select,
+    #form2 input,
+    #form3 input,
+    #form4 input,
+    #form5 input,
+    #form6 input,
+    #form7 input {
+        width: 90%;
+        max-width: 500px;
+    }
+
+    .toggle-label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 90%;
+        max-width: 500px;
+        margin: 10px auto;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .forms {
+        width: 70%;
+    }
+    
+    #form1 h1,
+    #form2 h1,
+    #form3 h1,
+    #form4 h1,
+    #form5 h1,
+    #form6 h1,
+    #form7 h1,
+    #form8 h1 {
+        margin-left: 0;
+        text-align: center;
+    }
+    
+    #form1 p,
+    #form2 p,
+    #form3 p,
+    #form4 p,
+    #form5 p,
+    #form6 p,
+    #form7 p,
+    #form8 p {
+        margin-left: 0;
+        text-align: center;
+    }
+    
+    .editor-container {
+        width: 90%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .nav-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+    }
+    
+    .nav-buttons .arrow-btn2 {
+        position: static;
+    }
+
+    .toggle-label {
+        width: 90%;
+        max-width: 500px;
+        margin: 15px auto;
+        padding: 0 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .forms {
+        width: 85%;
+    }
+    
+    .form {
+        padding: 20px;
+        margin: 30px 0;
+    }
+    
+    #form1 select,
+    #form2 input,
+    #form3 input,
+    #form4 input,
+    #form5 input,
+    #form6 input,
+    #form7 input {
+        width: 100%;
+        max-width: none;
+        margin: 10px 0;
+    }
+    
+    .editor-container {
+        width: 100%;
+        max-width: none;
+    }
+    
+    .toolbar {
+        position: relative;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 10px 0;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .toolbar::-webkit-scrollbar {
+        height: 5px;
+    }
+
+    .toolbar::-webkit-scrollbar-thumb {
+        background: #6c5ce7;
+        border-radius: 5px;
+    }
+
+    .toolbar button {
+        margin: 0 5px;
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .preview {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .content {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .toggle-label {
+        width: 100%;
+        margin: 15px 0;
+        padding: 0;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .preview {
+        width: 85%;
+        margin-top: 30px;
+        order: 2;
+    }
+
+    .forms {
+        order: 1;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .forms {
+        width: 95%;
+    }
+    
+    .form {
+        padding: 15px;
+        margin: 20px 0;
+    }
+    
+    #form1 h1,
+    #form2 h1,
+    #form3 h1,
+    #form4 h1,
+    #form5 h1,
+    #form6 h1,
+    #form7 h1,
+    #form8 h1 {
+        font-size: 24px;
+    }
+    
+    #form1 p,
+    #form2 p,
+    #form3 p,
+    #form4 p,
+    #form5 p,
+    #form6 p,
+    #form7 p,
+    #form8 p {
+        font-size: 18px;
+    }
+    
+    .form label {
+        font-size: 16px;
+        display: block;
+        margin-bottom: 8px;
+    }
+    
+    .nav-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .arrow-btn,
+    .arrow-btn2 {
+        font-size: 14px;
+        padding: 7px 0;
+        min-width: 24px;
+        min-height: 24px;
+    }
+    
+    .preview {
+        width: 95%;
+        padding: 15px;
+        margin-top: 20px;
+    }
+
+    .toggle-label {
+        font-size: 16px;
+        gap: 8px;
+        min-height: 24px;
+    }
+
+    .toggle-label input[type="checkbox"] {
+        align-self: flex-end;
+        margin-bottom: 2px;
+    }
+
+    .toggle-label .slider {
+        width: 32px;
+        height: 16px;
+    }
+
+    .toggle-label .slider::before {
+        width: 12px;
+        height: 12px;
+    }
+
+    #form6 .inputCheck {
+        width: 100%;
+        max-width: 50px;
+        margin: 10px 0;
+    }
+
+    #form7 .btnPlay {
+        position: static;
+        width: 100%;
+        max-width: 200px;
+        margin: 10px auto;
+        display: block;
+    }
+
+    .form .nav-buttons {
+        gap: 16px;
+        margin-top: 20px;
+    }
+}
+
+/* Accessibility Enhancements */
+.toggle-label {
+    color: #333;
+    font-weight: 600;
+}
+
+.toggle-label input[type="checkbox"] {
+    position: relative;
+    cursor: pointer;
+}
+
+.toggle-label input[type="checkbox"]:focus {
+    outline: 2px solid #6c5ce7;
+    outline-offset: 2px;
+}
+
+/* Tooltip Styles */
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]:before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 10px;
+    background-color: #333;
+    color: white;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+[data-tooltip]:hover:before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+/* Loading States */
+.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.loading:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: inherit;
+}
+
+/* Error States */
+.error {
+    border-color: #ff4444 !important;
+    background-color: #fff5f5 !important;
+}
+
+.error-message {
+    color: #ff4444;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+}
+
+.error .error-message {
+    display: block;
+}
+
+/* Success States */
+.success {
+    border-color: #00C851 !important;
+    background-color: #f1fff1 !important;
+}
+
+.success-message {
+    color: #00C851;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+}
+
+.success .success-message {
+    display: block;
+}
+
+                                               
+

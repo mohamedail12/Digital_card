@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegisterForm</title>
+    <link rel="stylesheet" href="register.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="wrapper">
+        <form id="registerForm" action="register.php" method="post">
+            <h1>Register</h1>
+
+            <div class="input-box">
+                <input id="firstName" type="text" placeholder="First Name" name="firstName" required>
+                <i class='bx bxs-user'></i>
+            </div>
+
+            <div class="input-box">
+                <input id="lastName" type="text" placeholder="Last Name" name="lastName" required>
+            </div>
+
+            <div class="input-box">
+                <input id="Email" type="email" placeholder="Email" name="Email" required>
+            </div>
+
+            <div class="input-box">
+                <input id="password" type="password" placeholder="Password" name="password" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+
+            <div class="input-box">
+                <input id="confirmPassword" type="password" placeholder="Confirm Password" name="confirmPassword" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+
+            <button type="submit" class="btn">Submit</button>
+            <a href="login.html">Go to Login</a>
+        </form>
+    </div>
+
+    <script>
+        window.onload = function () {
+            const form = document.getElementById("registerForm");
+            const firstName = document.getElementById("firstName");
+            const lastName = document.getElementById("lastName");
+            const Email = document.getElementById("Email");
+            const password = document.getElementById("password");
+            const confirmPassword = document.getElementById("confirmPassword");
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();  // Prevent the form from being submitted immediately.
+
+                let firstNameValue = firstName.value.trim();
+                let lastNameValue = lastName.value.trim();
+                let emailValue = Email.value.trim();
+                let passwordValue = password.value.trim();
+                let confirmPasswordValue = confirmPassword.value.trim();
+
+                // Check if any fields are empty
+                if (firstNameValue === "" || lastNameValue === "" || emailValue === "" || passwordValue === "" || confirmPasswordValue === "") {
+                    alert("All items are required.");
+                    return;
+                }
+
+                // Check if passwords match
+                if (passwordValue !== confirmPasswordValue) {
+                    alert("Password must equal Confirm Password");
+                    return;
+                }
+
+                // If all validations pass, submit the form
+                form.submit();  // Submit the form to the server
+            });
+        }
+    </script>
+</body>
+
+</html>

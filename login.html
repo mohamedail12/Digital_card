@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoginForm</title>
+    <link rel="stylesheet" href="login.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="wrapper">
+<form id="loginForm" action="login.php" method="post">
+    <h1>Login</h1>
+
+    <div class="input-box">
+        <input id="loginEmail" type="email" placeholder="Email" name="Email" required>
+    </div>
+
+    <div class="input-box">
+        <input id="password" type="password" placeholder="Password" name="Password" required>
+        <i class='bx bxs-lock-alt'></i>
+    </div>
+
+    <div class="remember-forgot">
+        <label><input type="checkbox">Remember Me</label>
+    </div>
+
+    <button type="submit" name="submit" class="btn">Login</button>
+    <a href="register.html">Go to Register</a>
+</form>
+
+  
+    </div>
+    <!-- <script>
+        window.onload = function () {
+            document.getElementById("loginForm").addEventListener("submit", function (event) {
+                event.preventDefault();
+                var emailInput = document.getElementById("loginEmail").value.trim();
+                var passwordInput = document.getElementById("password").value.trim();
+
+                let storedUser = JSON.parse(localStorage.getItem("user"));
+                if (!storedUser) {
+                    alert("Email is not found");
+                    return;
+                }
+                if (emailInput === storedUser.Email && passwordInput === storedUser.password) {
+                    alert("Login Successful");
+                    window.location.href = "profile.html";
+                }
+                else {
+                    alert("Your Email or password incorrect");
+                }
+
+            });
+        };
+
+    </script> -->
+
+</body>
+
+</html>

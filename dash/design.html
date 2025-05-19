@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رفع كروت أفراح</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6d28d9;
+            --border: #e2e8f0;
+            --text: #1e293b;
+        }
+        
+        * {
+            font-family: 'Tajawal', sans-serif;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            color: var(--text);
+        }
+        
+        .simple-form {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+        }
+        
+        .form-title {
+            text-align: center;
+            margin-bottom: 25px;
+            color: var(--primary);
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 15px;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 15px;
+            transition: border 0.3s;
+        }
+        
+        .input-group input:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.1);
+        }
+        
+        .file-upload {
+            border: 2px dashed var(--border);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        
+        .file-upload:hover {
+            border-color: var(--primary);
+        }
+        
+        .file-upload i {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .file-name {
+            font-size: 14px;
+            color: #64748b;
+            margin-top: 5px;
+        }
+        
+        #preview {
+            max-width: 100%;
+            max-height: 200px;
+            display: none;
+            margin: 15px auto;
+            border-radius: 6px;
+        }
+        
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            background: #5b21b6;
+        }
+        
+        input[type="file"] {
+            display: none;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="simple-form">
+        <h1 class="form-title">إضافة تصميم جديد</h1>
+        
+        <form action="upload_design.php" method="POST" enctype="multipart/form-data">
+            <div class="input-group">
+                <label for="name">اسم التصميم</label>
+                <input type="text" id="name" name="name" placeholder="مثال: كرت زفاف كلاسيكي" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="price">السعر </label>
+                <input type="number" id="price" name="price" step="0.01" min="0" placeholder="0.00" required>
+            </div>
+            
+            <div class="input-group">
+                <label>صور التصميم</label>
+                <label class="file-upload" for="images">
+                    <i class="fas fa-image"></i>
+                    <div>انقر لرفع الصور</div>
+                    <div class="file-name" id="file-name">لم يتم اختيار ملفات</div>
+                </label>
+                <input type="file" id="images" name="images[]" accept="image/*" multiple required>
+                <img id="preview" alt="معاينة الصور">
+            </div>
+            
+            <button type="submit" class="submit-btn">حفظ التصميم</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('images').addEventListener('change', function(e) {
+            const fileNames = Array.from(e.target.files).map(file => file.name).join(', ') || 'لم يتم اختيار ملفات';
+            document.getElementById('file-name').textContent = fileNames;
+            
+            if (e.target.files && e.target.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const preview = document.getElementById('preview');
+                    preview.src = event.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(e.target.files[0]);
+            }
+        });
+    </script>
+</body>
+</html>
